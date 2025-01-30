@@ -1,0 +1,18 @@
+.footer {
+  background-color: #121212;
+  color: #bbb;
+  font-size: 14px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #fff;
+}

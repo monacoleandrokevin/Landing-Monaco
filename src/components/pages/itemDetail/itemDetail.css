@@ -1,0 +1,22 @@
+.item-detail-card {
+  background: #fff;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.item-detail-card:hover {
+  transform: scale(1.02);
+}
+
+.card-title {
+  font-size: 1.8rem;
+}
+
+.text-success {
+  font-weight: bold;
+}
+
+.img-fluid {
+  max-height: 300px;
+  object-fit: cover;
+}

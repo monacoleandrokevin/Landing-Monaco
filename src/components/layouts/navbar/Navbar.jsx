@@ -1,15 +1,16 @@
 import "./navbar.css";
 import logo from "../../../assets/images/logo.webp";
 import { CartWidget } from "../../common/cartWidget/CartWidget";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container">
         {/* Logo a la izquierda */}
-        <a href="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand">
           <img src={logo} alt="MegaNode Logo" className="navbar-logo" />
-        </a>
+        </Link>
 
         {/* Botón de colapso para móvil */}
         <button
@@ -29,19 +30,27 @@ export const Navbar = () => {
           {/* Etiquetas en el centro */}
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
-              <a className="nav-link" href="/all">
+              <Link to="/" className="nav-link" href="/all">
                 Todas
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/desktopComputer">
+              <Link
+                to="/category/desktop"
+                className="nav-link"
+                href="/desktopComputer"
+              >
                 PC de Escritorio
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/notebooks">
+              <Link
+                to="/category/notebook"
+                className="nav-link"
+                href="/notebooks"
+              >
                 Notebooks
-              </a>
+              </Link>
             </li>
           </ul>
 
