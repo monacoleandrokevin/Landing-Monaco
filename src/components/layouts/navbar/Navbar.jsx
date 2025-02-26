@@ -1,7 +1,7 @@
 import "./navbar.css";
 import logo from "../../../assets/images/logo.webp";
 import { CartWidget } from "../../common/cartWidget/CartWidget";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 export const Navbar = () => {
   return (
@@ -12,50 +12,45 @@ export const Navbar = () => {
           <img src={logo} alt="MegaNode Logo" className="navbar-logo" />
         </Link>
 
-        {/* Botón de colapso para móvil */}
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        {/* Botón de menú y carrito en mobile */}
+        <div className="d-flex align-items-center d-lg-none">
+          <button
+            className="navbar-toggler me-3"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <CartWidget />
+        </div>
 
         {/* Contenido del Navbar */}
         <div className="collapse navbar-collapse" id="navbarNav">
           {/* Etiquetas en el centro */}
-          <ul className="navbar-nav mx-auto">
+          <ul className="navbar-nav mx-auto text-center">
             <li className="nav-item">
-              <Link to="/" className="nav-link" href="/all">
+              <Link to="/" className="nav-link">
                 Todas
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                to="/category/desktop"
-                className="nav-link"
-                href="/desktopComputer"
-              >
+              <Link to="/category/desktop" className="nav-link">
                 PC de Escritorio
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                to="/category/notebook"
-                className="nav-link"
-                href="/notebooks"
-              >
+              <Link to="/category/notebook" className="nav-link">
                 Notebooks
               </Link>
             </li>
           </ul>
 
-          {/* Logo del carrito a la derecha */}
-          <div className="d-flex align-items-center">
+          {/* Carrito alineado a la derecha en pantallas grandes */}
+          <div className="d-none d-lg-flex align-items-center">
             <CartWidget />
           </div>
         </div>

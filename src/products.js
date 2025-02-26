@@ -1,6 +1,6 @@
 export let products = [
   {
-    id: "1",
+    //id: "1",
     title: "Notebook HP 255 G10",
     price: 682490,
     description: "Ryzen 3 7330U 8Gb SSD 256Gb 15.6 Free",
@@ -10,7 +10,7 @@ export let products = [
     category: "notebook",
   },
   {
-    id: "2",
+    //id: "2",
     title: "Notebook Lenovo Thinkbook 16 G6",
     price: 1133990,
     description: "Ryzen 7 7730u 16GB SSD 512GB WUXGA Free",
@@ -20,7 +20,7 @@ export let products = [
     category: "notebook",
   },
   {
-    id: "3",
+    //id: "3",
     title: "Pc Cougar",
     price: 587490,
     description: "i5 14400 SSD 480Gb 16Gb",
@@ -30,7 +30,7 @@ export let products = [
     category: "desktop",
   },
   {
-    id: "4",
+    //id: "4",
     title: "Pc Sentey",
     price: 892490,
     description: "i9 12900 16Gb SSD 240Gb",

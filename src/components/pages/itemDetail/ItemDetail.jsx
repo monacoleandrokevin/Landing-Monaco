@@ -1,17 +1,33 @@
 import { useEffect, useState } from "react";
-import { products } from "../../../products";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { db } from "../../../firebaseConfig";
+import { useParams, Link } from "react-router";
 import "./itemDetail.css";
+import Counter from "../../common/counter/Counter";
+import { collection, doc, getDoc } from "firebase/firestore";
 
 const ItemDetail = () => {
   const [item, setItem] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
-    let productSelected = products.find((product) => product.id === id);
-    setItem(productSelected);
+    const getProduct = async () => {
+      try {
+        let productSelected = collection(db, "products");
+        let productRef = doc(productSelected, id);
+        let res = await getDoc(productRef);
+        if (res.exists()) {
+          setItem({ ...res.data(), id: res.id });
+        }
+      } catch (error) {
+        console.log("Error al obtener el producto:", error);
+      }
+    };
+    getProduct();
   }, [id]);
+
+  // Mostrar un mensaje de carga si aún no hay datos
+  if (!item.id) return <p className="text-center mt-5">Cargando...</p>;
+
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
@@ -35,11 +51,9 @@ const ItemDetail = () => {
                   <p className="card-text">{item.description}</p>
 
                   {/* Contenedor de botones alineados */}
-                  <div className="d-flex gap-3 mt-3 justify-content-center">
-                    <button className="btn btn-primary w-50">
-                      Agregar al Carrito
-                    </button>
-                    <Link to="/" className="btn btn-secondary w-50">
+                  <div className="d-flex flex-column align-items-center mt-3">
+                    <Counter item={item} />
+                    <Link to="/" className="btn btn-secondary w-75 mt-3">
                       Volver
                     </Link>
                   </div>
